@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.tmrScreenshot = new System.Windows.Forms.Timer(this.components);
+            this.tmrSnapshot = new System.Windows.Forms.Timer(this.components);
             this.icnTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.mnuTray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,9 +39,10 @@
             this.mnuTray.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tmrScreenshot
+            // tmrSnapshot
             // 
-            this.tmrScreenshot.Tick += new System.EventHandler(this.tmrScreenshot_Tick);
+            this.tmrSnapshot.Interval = 1000;
+            this.tmrSnapshot.Tick += new System.EventHandler(this.tmrSnapshot_Tick);
             // 
             // icnTray
             // 
@@ -83,10 +84,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(134, 137);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMain";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "FFLink";
             this.mnuTray.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -94,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer tmrScreenshot;
+        private System.Windows.Forms.Timer tmrSnapshot;
         private System.Windows.Forms.NotifyIcon icnTray;
         private System.Windows.Forms.ContextMenuStrip mnuTray;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;

@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FFLinkMain
 {
     public partial class FrmControls : Form
     {
-        private FrmMain frmMain;
+        private readonly FrmMain _frmMain;
 
         public FrmControls()
         {
@@ -21,7 +15,7 @@ namespace FFLinkMain
         public FrmControls(FrmMain frmMain)
             : this()
         {
-            this.frmMain = frmMain;
+            _frmMain = frmMain;
         }
 
         protected override void WndProc(ref Message m)
@@ -36,12 +30,16 @@ namespace FFLinkMain
             }
 
             base.WndProc(ref m);
-
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            frmMain.SettingsForm.Show();
+            _frmMain.SettingsForm.Show();            
+        }
+
+        private void btnSnapshots_Click(object sender, EventArgs e)
+        {
+            _frmMain.StartSnapshots();
         }
     }
 }
